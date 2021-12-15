@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "6cd02c8a-93cc-4d1c-b891-7272c396ab58",
+		"name": "Proyect5_Monedero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lista Coin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9995/monedero-microservice/monedero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9995",
+					"path": [
+						"monedero-microservice",
+						"monedero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movimientos Coin-movement",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9995/movement-coin-microservice/mov-coin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9995",
+					"path": [
+						"movement-coin-microservice",
+						"mov-coin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar Coin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"document\": \"46440530\",\r\n    \"documentType\": \"DNI\",\r\n    \"telephone\": \"940404461\",\r\n    \"mail\": \"jose@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9995/monedero-microservice/monedero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9995",
+					"path": [
+						"monedero-microservice",
+						"monedero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retirar Dinero Coin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product\": \"940404461\",\r\n    \"concept\": \"SACAR-DINERO\",\r\n    \"amount\": 2500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{wallet_mov}}/mov-wallet",
+					"protocol": "http",
+					"host": [
+						"{{wallet_mov}}"
+					],
+					"path": [
+						"mov-wallet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Depositar Dinero Coin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product\": \"940404461\",\r\n    \"concept\": \"PONER-DINERO\",\r\n    \"amount\": 2500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{wallet_mov}}/mov-wallet",
+					"protocol": "http",
+					"host": [
+						"{{wallet_mov}}"
+					],
+					"path": [
+						"mov-wallet"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
